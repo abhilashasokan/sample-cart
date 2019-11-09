@@ -23,6 +23,10 @@ const routes: Routes = [
     data: {
       resetCache: true
     }
+  },
+  {
+    path: 'products',
+    loadChildren: './products/products.module#ProductsModule'
   }
 ];
 

@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
+    <input type="search" class="form-control ds-input" id="search-input" placeholder="Search..."
+      aria-label="Search for..." autocomplete="off" data-docs-version="4.3" spellcheck="false" role="combobox"
+      aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0" dir="auto"
+      style="position: relative; vertical-align: top;">
+  </div>
+  <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+    <button class="btn btn-outline-dark float-right" type="button" [routerLink]="['/products/manage']"
+      routerLinkActive="router-link-active">Create</button>
+  </div>
+</div>
+<div class="row mt-2 pl-3">
+  <div class="card mr-1" style="width: 20rem;" *ngFor="let product of products$ | async">
+    <img src="{{ product.imageUrl }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <p class="card-text">{{ product.productInfo }}</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div>
