@@ -5,7 +5,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { FooterComponent } from './layout/components/footer/footer.component';
+import { HeaderComponent } from './layout/components/header/header.component';
+import { ShellComponent } from './layout/container/shell/shell.component';
 
 @NgModule({
   imports: [
@@ -14,10 +16,10 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     TranslateModule.forRoot(),
     NgbModule,
-    AppRoutingModule // must be imported as the last module as it contains the fallback route
+    AppRoutingModule
   ],
-  declarations: [AppComponent],
+  declarations: [ShellComponent, HeaderComponent, FooterComponent],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ShellComponent]
 })
 export class AppModule {}
