@@ -15,9 +15,26 @@
     <a class="py-2 d-none d-md-inline-block" href="#">Tour</a>
     <a class="py-2 d-none d-md-inline-block" href="#">Product</a>
     <a class="py-2 d-none d-md-inline-block" href="#">Features</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Enterprise</a>
     <a class="py-2 d-none d-md-inline-block" href="#">Support</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Pricing</a>
     <a class="py-2 d-none d-md-inline-block" href="#">Cart</a>
+    <div ngbDropdown class="d-inline-block">
+      <button type="button" class="btn btn-link" ngbDropdownToggle id="signInForm" role="button">Accounts</button>
+      <div ngbDropdownMenu aria-labelledby="signInForm">
+        <form class="px-4 py-3" *ngIf="!(authenticationService.userData | async)">
+          <div class="form-group">
+            <label for="signInEmail">Email</label>
+            <input [(ngModel)]="email" type="email" name="email" class="form-control" placeholder="email@example.com">
+          </div>
+          <div class="form-group">
+            <label for="signInPassword">Password</label>
+            <input [(ngModel)]="password" type="password" name="password" class="form-control" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-primary mr-2" (click)="onSignIn()">Sign In</button>
+          <button type="submit" class="btn btn-secondary mr-2" (click)="onSignUp()">Sign Up</button>
+        </form>
+        <a ngbDropdownItem href="#" *ngIf="authenticationService.userData | async">Profile</a>
+        <a ngbDropdownItem href="#" (click)="onLogout()" *ngIf="authenticationService.userData | async">Logout</a>
+      </div>
+    </div>
   </div>
 </nav>
